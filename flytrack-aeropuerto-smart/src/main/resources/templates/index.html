@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <title th:text="'FlyTrack - AeroPuerto Smart'">FlyTrack - AeroPuerto Smart</title>
+    <link rel="stylesheet" th:href="@{/css/styles.css}"/>
+</head>
+<body>
+<header class="site-header">
+    <h1>FlyTrack — AeroPuerto Smart</h1>
+    <p class="tagline">Itinerarios, avisos de vuelo, puertas de embarque y equipaje</p>
+</header>
+
+<main class="grid">
+    <section class="card" id="sec-itinerario" aria-labelledby="titulo-itinerario">
+        <h2 id="titulo-itinerario">1. Consultar itinerarios</h2>
+        <label for="input-itinerario">Número de vuelo</label>
+        <input id="input-itinerario" type="text" placeholder="Ej: AV123" autocomplete="off"/>
+        <button type="button" id="btn-itinerario">Consultar itinerario</button>
+        <div class="result" id="out-itinerario" role="status"></div>
+        <p class="hint">Ejemplos en base de datos: AV123, AV456, AV789, AV999, AV555</p>
+    </section>
+
+    <section class="card" id="sec-notif" aria-labelledby="titulo-notif">
+        <h2 id="titulo-notif">2. Notificaciones sobre cambios de vuelo</h2>
+        <label for="input-notif">Número de vuelo</label>
+        <input id="input-notif" type="text" placeholder="Ej: AV123" autocomplete="off"/>
+        <button type="button" id="btn-notif">Recibir notificación</button>
+        <div class="result" id="out-notif" role="status"></div>
+    </section>
+
+    <section class="card" id="sec-puerta" aria-labelledby="titulo-puerta">
+        <h2 id="titulo-puerta">3. Conocer la puerta de embarque</h2>
+        <label for="input-puerta">Número de vuelo</label>
+        <input id="input-puerta" type="text" placeholder="Ej: AV789" autocomplete="off"/>
+        <button type="button" id="btn-puerta">Consultar puerta</button>
+        <div class="result" id="out-puerta" role="status"></div>
+    </section>
+
+    <section class="card" id="sec-equipaje" aria-labelledby="titulo-equipaje">
+        <h2 id="titulo-equipaje">4. Reportar inconvenientes con equipaje</h2>
+        <label for="input-rep-vuelo">Número de vuelo</label>
+        <input id="input-rep-vuelo" type="text" placeholder="Ej: AV456" autocomplete="off"/>
+        <label for="input-rep-equipaje">Número de equipaje (etiqueta registrada en el vuelo)</label>
+        <input id="input-rep-equipaje" type="text" placeholder="Ej: EQ-7788 en AV123" autocomplete="off"/>
+        <label for="input-rep-desc">Descripción del problema</label>
+        <textarea id="input-rep-desc" rows="3" placeholder="Describa el inconveniente"></textarea>
+        <button type="button" id="btn-reporte">Reportar inconveniente</button>
+        <div class="result" id="out-reporte" role="status"></div>
+        <p class="hint">Solo se aceptan etiquetas ya cargadas en sistema por vuelo. Ej.: AV123 → EQ-7788 o EQ-8899; AV456 → EQ-45601; AV789 → EQ-78901; AV999 → EQ-99901; AV555 → EQ-55501.</p>
+    </section>
+</main>
+
+<footer class="site-footer">
+    <small>AeroPuerto Smart · Datos en tiempo real desde el servidor</small>
+</footer>
+
+<script th:src="@{/js/app.js}"></script>
+</body>
+</html>
